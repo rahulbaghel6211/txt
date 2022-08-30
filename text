@@ -1,0 +1,63 @@
+ //Q no.1 Using this implementation as a starting point, please extend the polynomial addition function to allow polynomial coefficients (in another variable y)
+
+ function add(arr,arr1, m, n){
+      let size = Math.max(m, n);
+      var sum = [];
+      for (var i = 0; i < 10; i++) sum[i] = 0;
+      for(let i = 0;i<m;i++){
+          sum[i] = arr[i];
+      }
+      for (let i = 0;i<n;i++){
+          sum[i] += arr1[i];
+      }
+      return sum;
+  }
+  function Polynomial(poly, n){
+      let ans = '';
+      for(let i = 0;i<n;i++){
+          ans += poly[i];
+          if (i != n - 1){
+              ans += " ";
+          }
+       }
+       console.log(ans);
+  }
+  let arr= [5, 0, 10, 6];
+
+  let arr1= [1, 2, 4];
+  let m = arr.length;
+  let n = arr1.length;
+  let sum = add(arr,arr1, m, n);
+  let size = Math.max(m, n);
+  Polynomial(sum,size);
+
+
+  //Q No 2. Implement a polynomial multiplication routine which similarly allows polynomial coefficients (in another variable y)
+
+
+  function multiply(arr1, arr2, x, y){
+    var prod = [];
+    for (var i = 0; i < x + y - 1; i++) prod[i] = 0;
+    for(var i = 0; i < x ; i++){
+        for (var j = 0; j < y ; j++)
+            prod[i + j] += arr1[i] * arr2[j];
+    }
+    return prod;
+}
+function printPoly(poly, n){
+    let ans= '';
+    for (var i = 0; i < n ; i++){
+        ans += poly[i];
+        
+        if (i != n - 1)
+            ans += " ";
+    }
+    console.log(ans)
+}
+
+let arr1= [5, 0, 10, 6];
+let arr2= [1, 2, 4];
+let x= (arr1).length;
+let y= (arr2).length;
+let prod = multiply(arr1, arr2, x, y);
+printPoly(prod, x+y-1);
